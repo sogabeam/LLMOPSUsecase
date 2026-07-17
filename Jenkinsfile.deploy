@@ -574,7 +574,7 @@ pipeline {
                         echo "======================================"
                         echo "Service:"
                         echo "======================================"
-                        kubectl get svc multi-doc-chat-today-service
+                        kubectl get svc multi-doc-chat-service
                     '''
                 }
             }
@@ -629,7 +629,7 @@ pipeline {
                         set -e
                         
                         # Get LoadBalancer URL
-                        EXTERNAL_IP=$(kubectl get svc multi-doc-chat-today-service \
+                        EXTERNAL_IP=$(kubectl get svc multi-doc-chat-service \
                             -o jsonpath='{.status.loadBalancer.ingress[0].hostname}' 2>/dev/null || echo "")
                         
                         if [ -n "${EXTERNAL_IP}" ] && [ "${EXTERNAL_IP}" != "null" ]; then
