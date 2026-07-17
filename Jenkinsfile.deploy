@@ -673,7 +673,7 @@ pipeline {
                     echo ""
                     echo "To access the application:"
                     echo "1. Get the LoadBalancer URL:"
-                    echo "   kubectl get svc multi-doc-chat-today-service"
+                    echo "   kubectl get svc multi-doc-chat-service"
                     echo ""
                     echo "2. View logs:"
                     echo "   kubectl logs -l app=multi-doc-chat-today -f"
