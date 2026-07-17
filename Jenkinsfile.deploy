@@ -594,7 +594,7 @@ pipeline {
                         
                         # Wait up to 5 minutes for LoadBalancer to get external IP
                         for i in {1..30}; do
-                            EXTERNAL_IP=$(kubectl get svc multi-doc-chat-today-service \
+                            EXTERNAL_IP=$(kubectl get svc multi-doc-chat-service \
                                 -o jsonpath='{.status.loadBalancer.ingress[0].hostname}' 2>/dev/null || echo "")
                             
                             if [ -n "${EXTERNAL_IP}" ] && [ "${EXTERNAL_IP}" != "null" ]; then
@@ -613,7 +613,7 @@ pipeline {
                         
                         if [ -z "${EXTERNAL_IP}" ] || [ "${EXTERNAL_IP}" == "null" ]; then
                             echo "⚠️  LoadBalancer external IP not yet available"
-                            echo "Run: kubectl get svc multi-doc-chat-today-service -w"
+                            echo "Run: kubectl get svc multi-doc-chat-service -w"
                             echo "to watch for the external IP"
                         fi
                     '''
